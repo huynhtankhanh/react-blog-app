@@ -6,7 +6,7 @@ import posts from "./routers/posts.js";
 import mongoose from "mongoose";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+dotenv.config();
 
 app.use(bodyParser.json({ limit: "30mb" }));
 app.use(bodyParser.urlencoded({ extended: true, limit: "30mb" }));
@@ -15,7 +15,7 @@ app.use(cors());
 //using routers
 app.use("/posts", posts);
 
-dotenv.config();
+const PORT = process.env.PORT || 3001;
 const URI = process.env.DB_URL;
 
 mongoose
